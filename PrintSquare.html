@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .clear {
+            clear: both;
+        }
+
+        .float-left {
+            float: left;
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid green;
+			background-color: black;
+			margin: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    </br>
+    Enter the number : <input id="number" type="number" />
+    <br />
+    <button onclick="init()">Print</button>
+    <div id="figure">
+    </div>
+    <script>
+
+        let figureContainer = document.getElementById('figure');
+
+        function drawLine(number, lengthOfLine, typeOfFigure) {
+
+            for (let i = 0; i < lengthOfLine; i++) {
+                let numberIOfLine = document.createElement("div");
+                numberIOfLine.innerHTML = number;
+                
+                    numberIOfLine.className = "float-left";
+         
+
+                figureContainer.appendChild(numberIOfLine);
+            }
+            let clearLine = document.createElement("div");
+            clearLine.className = "clear";
+            figureContainer.appendChild(clearLine);
+        }
+        function drawSquare(number) {
+            for (let i = 0; i < number; i++) {
+                drawLine(number - i, number, "square");
+            }
+        }
+        function init() {
+            figureContainer.innerHTML = "";
+            let number = document.getElementById("number").value;
+                drawSquare(number);
+        }
+    </script>
+</body>
+
+</html>
